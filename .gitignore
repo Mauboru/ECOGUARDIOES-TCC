@@ -2,5 +2,5 @@ sounds/
 sprites/
 datafiles/
 assets/
-.yy
-.yyp
+*.yy
+*.yyp
