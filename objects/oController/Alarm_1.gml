@@ -1,2 +1,2 @@
-oHudGuara.image_index = 0;
+oHudGuara.sprite_index = sHudGuara;
 stopAlarm = false;

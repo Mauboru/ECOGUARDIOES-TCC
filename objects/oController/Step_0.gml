@@ -13,10 +13,6 @@ switch (_room_name) {
 		if (!audio_is_playing(snd_map)) audio_play_sound(snd_map, 1, 0);
 		break;
 		
-    case "rm_init":
-        //if (!audio_is_playing(snd_manguezal)) audio_play_sound(snd_manguezal, 1, 0);
-        break;
-		
 	case "rm_cutscene":
 		//if (!audio_is_playing(snd_cutscene)) audio_play_sound(snd_menu, 1, 1);
 		if aparecer == true {
@@ -75,7 +71,7 @@ switch (_room_name) {
 		
 		if oHudGuara.image_index != 0 and stopAlarm == false {
 			stopAlarm = true;
-			alarm[1] = 30;
+			alarm[1] = 100;
 		}
 		
 		#endregion
