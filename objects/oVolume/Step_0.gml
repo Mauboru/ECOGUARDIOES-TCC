@@ -1,6 +1,6 @@
 event_inherited();
 
-if music_volume = 0{
+if music_volume = 0 {
 	texto = "  -  ";
 	color = c_red;
 }else{

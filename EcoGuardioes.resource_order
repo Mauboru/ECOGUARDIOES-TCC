@@ -105,6 +105,7 @@
     {"name":"sBkMangrove","order":2,"path":"sprites/sBkMangrove/sBkMangrove.yy",},
     {"name":"sBkMangroveBlur","order":3,"path":"sprites/sBkMangroveBlur/sBkMangroveBlur.yy",},
     {"name":"sBkMap","order":4,"path":"sprites/sBkMap/sBkMap.yy",},
+    {"name":"sBkMapBlur","order":5,"path":"sprites/sBkMapBlur/sBkMapBlur.yy",},
     {"name":"sHudBar","order":4,"path":"sprites/sHudBar/sHudBar.yy",},
     {"name":"sHudGuaraError","order":1,"path":"sprites/sHudGuaraError/sHudGuaraError.yy",},
     {"name":"sHudGuaraHit","order":2,"path":"sprites/sHudGuaraHit/sHudGuaraHit.yy",},
