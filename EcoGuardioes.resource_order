@@ -62,6 +62,7 @@
     {"name":"oDialogueParent","order":1,"path":"objects/oDialogueParent/oDialogueParent.yy",},
     {"name":"oExit","order":3,"path":"objects/oExit/oExit.yy",},
     {"name":"oHudGuara","order":3,"path":"objects/oHudGuara/oHudGuara.yy",},
+    {"name":"oHudPause","order":5,"path":"objects/oHudPause/oHudPause.yy",},
     {"name":"oHudText","order":1,"path":"objects/oHudText/oHudText.yy",},
     {"name":"oMangrove","order":2,"path":"objects/oMangrove/oMangrove.yy",},
     {"name":"oMercado","order":1,"path":"objects/oMercado/oMercado.yy",},
@@ -124,7 +125,8 @@
     {"name":"sprYoYoTextbox","order":3,"path":"sprites/sprYoYoTextbox/sprYoYoTextbox.yy",},
     {"name":"sResidues","order":1,"path":"sprites/sResidues/sResidues.yy",},
     {"name":"sSpecialEvent","order":4,"path":"sprites/sSpecialEvent/sSpecialEvent.yy",},
-    {"name":"sTitlePoints","order":1,"path":"sprites/sTitlePoints/sTitlePoints.yy",},
+    {"name":"sTitlePause","order":1,"path":"sprites/sTitlePause/sTitlePause.yy",},
+    {"name":"sTitlePoints","order":2,"path":"sprites/sTitlePoints/sTitlePoints.yy",},
     {"name":"sWater","order":3,"path":"sprites/sWater/sWater.yy",},
   ],
 }
