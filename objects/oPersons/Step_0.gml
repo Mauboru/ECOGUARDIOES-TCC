@@ -9,24 +9,20 @@ if in_pause {
 
 if room_get_name(room) != "rm_jogo" instance_destroy()
 
-//Caso foi pausado ele retorna a jogar lixo
-var _quantidade_desejada = 20;
 var _quantidade_existente = instance_number(oResidues);
-var _instancias_a_adicionar = _quantidade_desejada - _quantidade_existente;
+var _instancias_a_adicionar = qtd_lixo - _quantidade_existente;
 _instancias_a_adicionar = min(_instancias_a_adicionar, 2);
-    
-// Cria as instâncias necessárias
+
 if (_instancias_a_adicionar > 0) {
 	repeat(_instancias_a_adicionar) {
-	    alarm[0] = irandom_range(0, 300);
+	    alarm[0] = irandom_range(min_time_add, max_time_add);
 	}
 }
 
-x += lengthdir_x(speed, direction); // Movimentação horizontal
-y += lengthdir_y(speed, direction); // Movimentação vertical
+x += lengthdir_x(speed, direction);
+y += lengthdir_y(speed, direction);
 
-// Verificar se o objeto atingiu a borda direita ou esquerda
-if (x + sprite_width <= 0 || x + sprite_width >= room_width) {
+if (x + tam_sprite <= 0 || x + tam_sprite >= room_width) {
 	limite--;
     direction = 180 - direction;
 	image_xscale *= -1;
@@ -34,12 +30,5 @@ if (x + sprite_width <= 0 || x + sprite_width >= room_width) {
 
 if (limite <= 0) instance_destroy();
 
-time += 1; // Atualiza a variável de tempo
-
-// Calcula a posição vertical usando uma função senoidal
 y += amplitude * sin(frequency * time);
-
-// Restringe a amplitude para evitar movimentos extremos
 y = clamp(y, initial_y - amplitude, initial_y + amplitude);
-
-//este
