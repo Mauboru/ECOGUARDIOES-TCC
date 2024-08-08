@@ -1,4 +1,5 @@
 randomize();
+depth = -1000;
 
 clicado = false;
 x_anterior = x;

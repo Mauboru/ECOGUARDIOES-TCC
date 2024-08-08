@@ -1,10 +1,10 @@
 globalvar timer, timerMax, timer_vel, wave, pontos, aparecer, intervalWave, stopAlarm, countSequence, 
 sucess, fails, stopSoundAlarm, specialEvent;
 
-timerMax = 60;
+timerMax = 30;
 timer = timerMax;
 timer_vel = .02;
-wave = 1;
+wave = 3;
 pontos = 0;
 aparecer = false;
 intervalWave = false;
@@ -13,7 +13,7 @@ countSequence = 0;
 sucess = 0;
 fails = 0;
 stopSoundAlarm = false;
-specialEvent = true;
+specialEvent = false;
 
 function verifySequence(value){
 	if value == "acertou" {
