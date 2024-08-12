@@ -120,6 +120,56 @@ if room_name == "rm_jogo" {
         }
     }
     #endregion
+	
+	#region TRASH
+	
+	if room_name == "rm_jogo" {
+		if !faseFinal and !instance_exists(oTrash) {
+			var scale = .3;
+			var plastic = instance_create_layer(159, 727, "UI", oTrash);
+			var paper = instance_create_layer(336, 727, "UI", oTrash);
+		
+			plastic.tipo = "plastico";
+			plastic.image_xscale = scale;
+			plastic.image_yscale = scale;
+		
+			paper.tipo = "papel";
+			paper.image_xscale = scale;
+			paper.image_yscale = scale;
+		} else if faseFinal {
+			if !instance_exists(oTrash) {
+				var scale = .3;
+				var xx = 80;
+				var spacing = xx * 1.5;
+				var yy = 730;
+				var plastic = instance_create_layer(xx, yy, "UI", oTrash);
+				var paper = instance_create_layer(xx + spacing, yy, "UI", oTrash);
+				var glass = instance_create_layer(xx + spacing * 2, yy, "UI", oTrash);
+				var metal = instance_create_layer(xx + spacing * 3, yy, "UI", oTrash);
+		
+				plastic.tipo = "plastico";
+				plastic.image_xscale = scale;
+				plastic.image_yscale = scale;
+		
+				paper.tipo = "papel";
+				paper.image_xscale = scale;
+				paper.image_yscale = scale;
+		
+				metal.tipo = "metal";
+				metal.image_xscale = scale;
+				metal.image_yscale = scale;
+		
+				glass.tipo = "vidro";
+				glass.image_xscale = scale;
+				glass.image_yscale = scale;
+			} else if !destroyed {
+				instance_destroy(oTrash);
+				destroyed = true;
+			}
+		}
+	}
+	
+	#endregion
 
 } else {
     instance_destroy(oTruck);

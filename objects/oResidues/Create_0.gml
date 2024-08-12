@@ -1,5 +1,4 @@
 randomize();
-depth = -1000;
 
 clicado = false;
 x_anterior = x;
@@ -8,7 +7,9 @@ papel = 0;
 vidro = 1;
 plastico = 2;
 metal = 3;
-tipo = choose(0,2);
+
+if faseFinal tipo = choose(0,1,2,3);
+else tipo = choose(0,2);
 
 switch (tipo) {
     case papel:
