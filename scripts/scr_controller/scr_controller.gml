@@ -4,7 +4,7 @@ sucess, fails, stopSoundAlarm, specialEvent, faseFinal;
 timerMax = 60;
 timer = timerMax;
 timer_vel = .02;
-wave = 2;
+wave = 1;
 pontos = 0;
 aparecer = false;
 intervalWave = false;
@@ -13,8 +13,8 @@ countSequence = 0;
 sucess = 0;
 fails = 0;
 stopSoundAlarm = false;
-specialEvent = true;
-faseFinal = true;
+specialEvent = false;
+faseFinal = false;
 
 function verifySequence(value){
 	if value == "acertou" {

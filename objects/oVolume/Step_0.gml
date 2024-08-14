@@ -1,9 +1,11 @@
 event_inherited();
 
 if music_volume = 0 {
-	texto = "  -  ";
+	caracteres = "-";
+	texto = " Mudo  ";
 	color = c_red;
 }else{
-	texto = "  Z  ";
+	caracteres = "Z";
+	texto = " Volume";
 	color = c_black;
 }

@@ -11,7 +11,8 @@ if in_pause {
 	instance_create_layer(room_width/2, room_height/2 + 192, "UI", oReturn);
 	instance_create_layer(room_width/2, room_height/2 + 288, "UI", oExit);
 	instance_create_layer(room_width/2, 200, "Transitions", oHudPause);
-	texto = "  D  ";
+	caracteres = "D";
+	texto = "Resumir";
 	x = room_width/2;
 	y = room_height/2;
 	audio_pause_sound(snd_tema);
@@ -22,9 +23,10 @@ if in_pause {
 	instance_destroy(oReturn);
 	instance_destroy(oExit);
 	instance_destroy(oVolume);
-	texto = " C ";
-	x = 44;
-	y = 40;
+	caracteres = "C";
+	texto = "Pause";
+	x = 72;
+	y = 48;
 	layer_enable_fx("Effect", false);
 	audio_resume_sound(snd_tema);
 	layer_set_visible(blur, false);
