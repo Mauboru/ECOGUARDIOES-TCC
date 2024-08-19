@@ -8,7 +8,7 @@ vidro = 1;
 plastico = 2;
 metal = 3;
 
-if faseFinal tipo = choose(0,1,2,3);
+if addMoreResidues tipo = choose(0,1,2,3);
 else tipo = choose(0,2);
 
 switch (tipo) {

@@ -1,20 +1,23 @@
-globalvar timer, timerMax, timer_vel, wave, pontos, aparecer, intervalWave, stopAlarm, countSequence, 
-sucess, fails, stopSoundAlarm, specialEvent, faseFinal;
+globalvar timer, timerMax, timer_vel, wave, pontos, intervalWave, stopAlarm, countSequence,
+sucess, fails, stopSoundAlarm, initTruckInGame, addMoreResidues, stopCreateEnemy, sceneIsNow, isShowingSpriteCutscene;
 
-timerMax = 60;
-timer = timerMax;
 timer_vel = .02;
-wave = 1;
 pontos = 0;
-aparecer = false;
 intervalWave = false;
 stopAlarm = false;
 countSequence = 0;
 sucess = 0;
 fails = 0;
 stopSoundAlarm = false;
-specialEvent = false;
-faseFinal = false;
+
+isShowingSpriteCutscene = false;
+sceneIsNow = 0;
+stopCreateEnemy = false;
+initTruckInGame = false;
+timerMax = 10;
+timer = timerMax;
+wave = 3;
+addMoreResidues = false;
 
 function verifySequence(value){
 	if value == "acertou" {
@@ -32,19 +35,15 @@ function verifySequence(value){
 
 function intervalBetweenWaves(){	
 	wave += 1;
+	if wave == 4 transition(rm_cutscene);
+	
 	timer = timerMax;
 	intervalWave = true;
-	
-	if wave == 3 {
-		specialEvent = true;
-		faseFinal = true;
-	}
-	
-	if wave == 4 {
-		wave = 1;
-		room_goto(rm_fim_de_jogo);
-	}
-	
+	stopCreateEnemy = false;
+
+	if wave == 3 initTruckInGame = true;
+	if wave == 5 addMoreResidues = true;
+
 	instance_create_layer(x, y, "Instances", oWaveTimer);
 }
 

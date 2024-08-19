@@ -1,4 +1,5 @@
 if in_pause exit;
+if stopCreateEnemy exit;
 
 var xx = choose(32, 416);
 var persons = instance_create_layer(xx, 577, "Instances", oPersons);

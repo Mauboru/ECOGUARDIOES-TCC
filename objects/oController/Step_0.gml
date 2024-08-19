@@ -6,14 +6,18 @@ var room_name = room_get_name(room);
 switch (room_name) {	
 	case "rm_map":
 		if (!audio_is_playing(snd_map)) audio_play_sound(snd_map, 1, 0);
-		break;
-		
+	break;
+	
+	#region CUTSCENE
 	case "rm_cutscene":
-		if aparecer == true {
-			fn_cutscene_sequence(seq_cutscene);
-			aparecer = noone;
+		if sceneIsNow = 0 {
+			instance_create_layer(-100, 0, "UI", oResidueCutscene);
+			instance_create_layer(-100, 0, "UI", oTrash);
+			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue01);
+			sceneIsNow = -1;
 		}
-		break;
+	break;
+	#endregion
 		
 	case "rm_menu":
 	    if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
@@ -55,25 +59,23 @@ if room_name == "rm_jogo" {
 	var _instancias_a_adicionar = _quantidade_desejada - _quantidade_existente;
 	_instancias_a_adicionar = min(_instancias_a_adicionar, 2);
     
-	// Cria as instâncias necessárias
-	if (_instancias_a_adicionar > 0 and not timer <= 5 and intervalWave == false and specialEvent == false) {
+	if (_instancias_a_adicionar > 0 and not timer <= 5 and intervalWave == false and initTruckInGame == false) {
 		repeat(_instancias_a_adicionar) {
 			alarm[0] = irandom_range(0, 130);
 		}
 	}
 
-	//Deletando inimigos caso ainda existam msm após parare de ser criados
-	if timer <= 5 and _quantidade_existente != 0 or intervalWave == true instance_destroy(oPersons);
+	if timer <= 5 and _quantidade_existente != 0 or intervalWave == true stopCreateEnemy = true;
 	#endregion
 		
 	#region Events
 		
-	if specialEvent and !intervalWave {
+	if initTruckInGame and !intervalWave {
 		if !instance_exists(oTruck) instance_create_layer(0, 620, "Instances", oTruck);
 	}
 
 	if (timer <= 5) {
-		specialEvent = false;
+		initTruckInGame = false;
 		instance_destroy(oTruck);
 	}
 		
@@ -124,7 +126,7 @@ if room_name == "rm_jogo" {
 	#region TRASH
 	
 	if room_name == "rm_jogo" {
-		if !faseFinal and !instance_exists(oTrash) {
+		if !addMoreResidues and !instance_exists(oTrash) {
 			var scale = .3;
 			var plastic = instance_create_layer(159, 727, "UI", oTrash);
 			var paper = instance_create_layer(336, 727, "UI", oTrash);
@@ -136,7 +138,7 @@ if room_name == "rm_jogo" {
 			paper.tipo = "papel";
 			paper.image_xscale = scale;
 			paper.image_yscale = scale;
-		} else if faseFinal {
+		} else if addMoreResidues {
 			if !instance_exists(oTrash) {
 				var scale = .3;
 				var xx = 80;
@@ -176,8 +178,4 @@ if room_name == "rm_jogo" {
     instance_destroy(oPersons);
     if ds_exists(objects, ds_type_list) ds_list_destroy(objects);
 }
-#endregion
-
-#region MENU
-
 #endregion
