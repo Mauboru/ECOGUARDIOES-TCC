@@ -14,9 +14,9 @@ isShowingSpriteCutscene = false;
 sceneIsNow = 0;
 stopCreateEnemy = false;
 initTruckInGame = false;
-timerMax = 10;
+timerMax = 30;
 timer = timerMax;
-wave = 3;
+wave = 1;
 addMoreResidues = false;
 
 function verifySequence(value){
