@@ -11,12 +11,12 @@ fails = 0;
 stopSoundAlarm = false;
 
 isShowingSpriteCutscene = false;
-sceneIsNow = 0;
+sceneIsNow = 1;
 stopCreateEnemy = false;
 initTruckInGame = false;
-timerMax = 20;
+timerMax = 60;
 timer = timerMax;
-wave = 2;
+wave = 1;
 addMoreResidues = false;
 
 function verifySequence(value){
@@ -35,7 +35,6 @@ function verifySequence(value){
 
 function intervalBetweenWaves(){
 	wave += 1;
-	if wave == 4 transition(rm_cutscene);
 	
 	timer = timerMax;
 	intervalWave = true;
@@ -43,7 +42,7 @@ function intervalBetweenWaves(){
 
 	if wave == 3 initTruckInGame = true;
 	if wave == 5 addMoreResidues = true;
-
+	
 	instance_create_layer(x, y, "Instances", oWaveTimer);
 }
 

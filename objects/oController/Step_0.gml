@@ -11,7 +11,16 @@ switch (room_name) {
 		
 		#region Time
 			if timer > 0 and intervalWave == false timer -= timer_vel
-			if timer <= 0 intervalBetweenWaves();	
+			if timer <= 0 {
+				if wave == 3 {
+					transition(rm_cutscene);
+					exit;
+				} else if wave == 7 {
+					transition(rm_fim_de_jogo);
+					exit;
+				}
+				intervalBetweenWaves();	
+			}
 		#endregion
 
 		#region Persons
@@ -39,6 +48,7 @@ switch (room_name) {
 		if (timer <= 5) {
 			initTruckInGame = false;
 			stopCreateEnemy = true;
+			sceneIsNow = 2;
 		}
 		#endregion
 		
@@ -141,13 +151,19 @@ switch (room_name) {
 	
 	#region CUTSCENE
 	case "rm_cutscene":
-		if sceneIsNow = 0 {
+		if sceneIsNow = 1 {
 			instance_create_layer(-100, 0, "UI", oResidueCutscene);
 			instance_create_layer(-100, 0, "UI", oTrash);
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue01);
+			intervalWave = false;
+			sceneIsNow = 0;
+		} else if sceneIsNow = 2 {
+			instance_create_layer(-100, 0, "UI", oResidueCutscene);
+			instance_create_layer(-100, 0, "UI", oTrash);
+			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue02);
 			wave++;
 			intervalWave = false;
-			sceneIsNow = -1;
+			sceneIsNow = 0;
 		}
 	break;
 	#endregion
@@ -155,11 +171,13 @@ switch (room_name) {
 	#region MENU
 	case "rm_menu":
 	    if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
+		sceneIsNow = 1;
 	break;
 	#endregion
 	
 	#region FIM DE JOGO
 	case "rm_fim_de_jogo":
+		#region Water Effect
 	    var _layer_id = layer_get_id("bk_water");
 	    var _new_y = layer_get_y(_layer_id);
 		
@@ -172,14 +190,21 @@ switch (room_name) {
 		
 		if (oLimit.y > 552) oLimit.phy_position_y -= .4;
 		if (oLimit.y < 552) oLimit.phy_position_y += 50;
+		#endregion
 
+		wave = 1;
+		intervalWave = false;
+		stopCreateEnemy = false;
+		initTruckInGame = false;
+		addMoreResidues = false;
+		
 	    if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
 	break;
 	#endregion
     
 	default:
-        audio_stop_all();
-        break;
+		audio_stop_all();
+    break;
 }
 
 //Evitando erros de instanciação continua

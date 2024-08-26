@@ -1,9 +1,8 @@
 function Dialogue() constructor {
 	_dialogs = [];
 	
-	add = function(_sprite, _audio,  _message) {
+	add = function(_audio,  _message) {
 		array_push(_dialogs, {
-			sprite: _sprite,
 			message: _message,
 			audio: _audio
 		});
