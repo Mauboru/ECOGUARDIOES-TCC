@@ -14,9 +14,9 @@ isShowingSpriteCutscene = false;
 sceneIsNow = 0;
 stopCreateEnemy = false;
 initTruckInGame = false;
-timerMax = 30;
+timerMax = 20;
 timer = timerMax;
-wave = 1;
+wave = 2;
 addMoreResidues = false;
 
 function verifySequence(value){
@@ -33,7 +33,7 @@ function verifySequence(value){
 	else stopSoundAlarm = false;
 }
 
-function intervalBetweenWaves(){	
+function intervalBetweenWaves(){
 	wave += 1;
 	if wave == 4 transition(rm_cutscene);
 	
