@@ -1,3 +1,5 @@
+debug = false;
+
 audio_group_load(music_group);
 audio_group_load(sfx_group);
 
@@ -6,3 +8,5 @@ ds_list_add(objects, oTruck);
 ds_list_add(objects, oPersons);
 
 destroyed = false;
+
+intervalBetweenWaves();

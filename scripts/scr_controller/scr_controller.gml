@@ -1,7 +1,6 @@
 globalvar timer, timerMax, timer_vel, wave, pontos, intervalWave, stopAlarm, countSequence,
 sucess, fails, stopSoundAlarm, initTruckInGame, addMoreResidues, stopCreateEnemy, sceneIsNow, isShowingSpriteCutscene;
 
-timer_vel = .02;
 pontos = 0;
 intervalWave = false;
 stopAlarm = false;
@@ -10,13 +9,14 @@ sucess = 0;
 fails = 0;
 stopSoundAlarm = false;
 
+timer_vel = .03; //mudar para .01
 isShowingSpriteCutscene = false;
 sceneIsNow = 1;
 stopCreateEnemy = false;
 initTruckInGame = false;
-timerMax = 60;
+timerMax = 20;
 timer = timerMax;
-wave = 1;
+wave = 0;
 addMoreResidues = false;
 
 function verifySequence(value){
@@ -43,7 +43,7 @@ function intervalBetweenWaves(){
 	if wave == 3 initTruckInGame = true;
 	if wave == 5 addMoreResidues = true;
 	
-	instance_create_layer(x, y, "Instances", oWaveTimer);
+	if wave != 1 instance_create_layer(x, y, "Instances", oWaveTimer);
 }
 
 function drawing(_font,  _color, _valign, _halign, _x, _y, _text){

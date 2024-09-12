@@ -5,11 +5,13 @@ var room_name = room_get_name(room);
 
 switch (room_name) {	
 	
+	#region MODULE 1
+	
 	#region JOGO
-	case "rm_jogo":
+	case "rmModule1":
 		if (!audio_is_playing(snd_tema)) audio_play_sound(snd_tema, 1, 1);
 		
-		#region Time
+		#region Timer
 			if timer > 0 and intervalWave == false timer -= timer_vel
 			if timer <= 0 {
 				if wave == 3 {
@@ -192,7 +194,7 @@ switch (room_name) {
 		if (oLimit.y < 552) oLimit.phy_position_y += 50;
 		#endregion
 
-		wave = 1;
+		wave = 0;
 		intervalWave = false;
 		stopCreateEnemy = false;
 		initTruckInGame = false;
@@ -201,6 +203,22 @@ switch (room_name) {
 	    if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
 	break;
 	#endregion
+	
+	#endregion
+	
+	#region MODULE 2
+	
+	case "rmModule2":
+	
+		if (!audio_is_playing(snd_fandango)) audio_play_sound(snd_fandango, 1, 1);
+	
+	break;
+	
+	#endregion
+	
+	#region MODULE 3
+	
+	#endregion
     
 	default:
 		audio_stop_all();
@@ -208,8 +226,11 @@ switch (room_name) {
 }
 
 //Evitando erros de instanciação continua
-if room_name != "rm_jogo" {
+if room_name != "rmModule1" and room_name != "rmModule2" {
 	instance_destroy(oTruck);
 	instance_destroy(oPersons);
 	if ds_exists(objects, ds_type_list) ds_list_destroy(objects);
 }
+
+//DEBUG
+if keyboard_check_pressed(vk_f1) debug = !debug;

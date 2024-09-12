@@ -6,7 +6,7 @@ if (_inst_lixeira != noone && _inst_lixeira.destacado && tipo == _inst_lixeira.t
 	pontos += 10;
 	oHudGuara.sprite_index = sHudGuaraHit;
 	verifySequence("acertou");
-	if stopSoundAlarm == false audio_play_sound(snd_fx_open, 0, 0)
+	audio_play_sound(snd_fx_open, 0, 0)
 	
     instance_destroy();
 } else {
@@ -21,5 +21,5 @@ if(_inst_lixeira != noone && _inst_lixeira.destacado && tipo != _inst_lixeira.ti
 	pontos -= 2;
 	oHudGuara.sprite_index = sHudGuaraError;
 	verifySequence("errou");
-	if stopSoundAlarm == false audio_play_sound(snd_fx_close, 0, 0)
+	audio_play_sound(snd_fx_close, 0, 0)
 }

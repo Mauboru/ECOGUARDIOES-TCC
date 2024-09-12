@@ -8,7 +8,7 @@ initial_y = y;
 limite = choose(2, 3);
 tam_sprite = 64;
 min_time_add = 50;
-max_time_add = 80;
+max_time_add = 120;
 
 direction = 0;
 speed = random_range(.8, 1.2);
