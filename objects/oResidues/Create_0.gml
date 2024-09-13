@@ -13,23 +13,23 @@ else tipo = choose(0,2);
 
 switch (tipo) {
     case papel:
-        tipo = "papel"
-		sprite = irandom_range(4, 7)
+        tipo = "papel";
+		sprite = 0;
 		image_index = sprite;
         break;
     case vidro:
-        tipo = "vidro"
-		sprite = irandom_range(8, 10)
+        tipo = "vidro";
+		sprite = 1;
 		image_index = sprite;
         break;
     case plastico:
-        tipo = "plastico"
-		sprite = irandom_range(0, 3)
+        tipo = "plastico";
+		sprite = 2;
 		image_index = sprite;
         break;
     case metal:
-        tipo = "metal"
-		sprite = irandom_range(11, 14)
+        tipo = "metal";
+		sprite = 3;
 		image_index = sprite;
         break;
 }
