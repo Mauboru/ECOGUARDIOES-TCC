@@ -1,4 +1,8 @@
-//globalvar ;
+globalvar ptGood, ptBad, ptPerfect;
+
+ptGood = 0;
+ptBad = 0;
+ptPerfect = 0;
 
 function verifyPoints(_x) {
 	if _x > 200 and _x < 250 return "Perfeito";

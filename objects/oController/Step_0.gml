@@ -226,11 +226,19 @@ switch (room_name) {
 	
 	#region MODULE 2
 	
+	#region JOGO
 	case "rmModule2":
-	
 		if (!audio_is_playing(snd_fandango)) audio_play_sound(snd_fandango, 1, 1);
+		
+		#region Scores
+		
+		if pontos < 0 pontos = 0;
+		
+		#endregion
 	
 	break;
+	
+	#endregion
 	
 	#endregion
 	
