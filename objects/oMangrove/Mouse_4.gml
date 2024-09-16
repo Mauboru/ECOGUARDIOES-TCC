@@ -1,1 +1,1 @@
-transition(rm_cutscene);
+transition(rmScene);

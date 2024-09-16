@@ -1,1 +1,2 @@
-transition(rmModule2);
+sceneIsNow = 3;
+transition(rmScene);

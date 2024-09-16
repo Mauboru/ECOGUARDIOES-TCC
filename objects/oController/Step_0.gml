@@ -15,7 +15,7 @@ switch (room_name) {
 			if timer > 0 and intervalWave == false timer -= timer_vel
 			if timer <= 0 {
 				if wave == 3 {
-					transition(rm_cutscene);
+					transition(rmScene);
 					exit;
 				} else if wave == 7 {
 					transition(rm_fim_de_jogo);
@@ -148,23 +148,41 @@ switch (room_name) {
 	#region MAP
 	case "rm_map":
 		if (!audio_is_playing(snd_map)) audio_play_sound(snd_map, 1, 0);
+		
 	break;
 	#endregion
 	
 	#region CUTSCENE
-	case "rm_cutscene":
-		if sceneIsNow = 1 {
+	case "rmScene":
+		var btSkip = instance_create_layer(416, 736, "UI", oSkip);
+		var background = layer_background_get_id("Backgrounds");
+		var background_tutorial = layer_background_get_id("Tutorial");
+		btSkip.caracteres = "k";
+		btSkip.texto = "Pular";
+		
+		if sceneIsNow = 1 /*Cena onde ensina os 2 primeiros tipos de residuos*/{
+			layer_background_visible(background_tutorial, false);
+			btSkip.destino = rmModule1;
+			layer_background_change(background, sBkMangroveBlur);
 			instance_create_layer(-100, 0, "UI", oResidueCutscene);
 			instance_create_layer(-100, 0, "UI", oTrash);
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue01);
 			intervalWave = false;
 			sceneIsNow = 0;
-		} else if sceneIsNow = 2 {
+		} else if sceneIsNow = 2 /*Cena onde ensina os outros 2 tipos de residuos*/ {
+			layer_background_visible(background_tutorial, false);
+			btSkip.destino = rmModule1;
+			layer_background_change(background, sBkMangroveBlur);
 			instance_create_layer(-100, 0, "UI", oResidueCutscene);
 			instance_create_layer(-100, 0, "UI", oTrash);
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue02);
 			wave++;
 			intervalWave = false;
+			sceneIsNow = 0;		
+		} else if sceneIsNow = 3 /*Cena onde tutorial de jogar no ritmo*/ {
+			btSkip.destino = rmModule2;
+			layer_background_visible(background_tutorial, true);
+			layer_background_change(background, sBkMandicueraBlur);
 			sceneIsNow = 0;
 		}
 	break;
