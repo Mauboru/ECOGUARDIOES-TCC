@@ -5,4 +5,4 @@ if dialog.count() == 1 and isShowingSpriteCutscene == false{
 	isShowingSpriteCutscene = true;
 }
 if dialog.count() == 0 oTrash.image_index = 3;
-if dialog.count() == 0 oResidueCutscene.image_index = 0;
+if dialog.count() == 0 oResidueCutscene.image_index = 2;

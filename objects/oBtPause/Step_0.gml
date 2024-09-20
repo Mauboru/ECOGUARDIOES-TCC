@@ -1,16 +1,15 @@
 event_inherited();
 
 var _click = mouse_check_button_pressed(k_accept)
-var _colision = instance_position(mouse_x, mouse_y, oPause);
+var _colision = instance_position(mouse_x, mouse_y, oBtPause);
 var blur = layer_get_id("Pause");
 
 if _click and _colision  in_pause = !in_pause
 
 if in_pause {
 	instance_create_layer(room_width/2, room_height/2 + 96, "UI", oBtVolume);
-	instance_create_layer(room_width/2, room_height/2 + 192, "UI", oReturn);
+	instance_create_layer(room_width/2, room_height/2 + 192, "UI", oBtReturn);
 	instance_create_layer(room_width/2, room_height/2 + 288, "UI", oBtExit);
-	instance_create_layer(room_width/2, 200, "Transitions", oHudPause);
 	caracteres = "D";
 	texto = "Resumir";
 	x = room_width/2;
@@ -19,8 +18,7 @@ if in_pause {
 	layer_set_visible(blur, true);
 	
 } else {
-	instance_destroy(oHudPause);
-	instance_destroy(oReturn);
+	instance_destroy(oBtReturn);
 	instance_destroy(oBtExit);
 	instance_destroy(oBtVolume);
 	caracteres = "C";

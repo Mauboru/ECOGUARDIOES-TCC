@@ -12,7 +12,9 @@ switch (room_name) {
 			if (!audio_is_playing(snd_tema)) audio_play_sound(snd_tema, 1, 1);
 		
 			#region TIMER
-				if timer > 0 and intervalWave == false timer -= timer_vel
+				if timer > 0 and intervalWave == false and in_pause == false {
+					timer -= timer_vel;
+				}
 				if timer <= 0 {
 					if wave == 3 {
 						transition(rmScene);
@@ -25,8 +27,8 @@ switch (room_name) {
 				}
 			#endregion
 
-			#region Persons
-			var _quantidade_desejada = 5;
+			#region ENEMIES
+			var _quantidade_desejada = 10;
 			var _quantidade_existente = instance_number(oPersons);
 			var _instancias_a_adicionar = _quantidade_desejada - _quantidade_existente;
 			_instancias_a_adicionar = min(_instancias_a_adicionar, 2);
@@ -214,12 +216,10 @@ switch (room_name) {
 	case "rmScene":
 		var btSkip = instance_create_layer(416, 736, "UI", oSkip);
 		var background = layer_background_get_id("Backgrounds");
-		var background_tutorial = layer_background_get_id("Tutorial");
 		btSkip.caracteres = "k";
 		btSkip.texto = "Pular";
-		
-		if sceneIsNow = 1 /*Cena onde ensina os 2 primeiros tipos de residuos*/{
-			layer_background_visible(background_tutorial, false);
+	
+		if sceneIsNow == 1 /*Cena onde ensina os 2 primeiros tipos de residuos*/{
 			btSkip.destino = rmModule1;
 			layer_background_change(background, sBkMangroveBlur);
 			instance_create_layer(-100, 0, "UI", oResidueCutscene);
@@ -227,9 +227,7 @@ switch (room_name) {
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue01);
 			intervalWave = false;
 			sceneIsNow = 0;
-		} else if sceneIsNow = 2 /*Cena onde ensina os outros 2 tipos de residuos*/ {
-			layer_background_visible(background_tutorial, false);
-			btSkip.destino = rmModule1;
+		} else if sceneIsNow == 2 /*Cena onde ensina os outros 2 tipos de residuos*/ {
 			layer_background_change(background, sBkMangroveBlur);
 			instance_create_layer(-100, 0, "UI", oResidueCutscene);
 			instance_create_layer(-100, 0, "UI", oTrash);
@@ -237,7 +235,7 @@ switch (room_name) {
 			wave++;
 			intervalWave = false;
 			sceneIsNow = 0;		
-		} else if sceneIsNow = 3 /*Cena onde tutorial de jogar no ritmo*/ {
+		} else if sceneIsNow == 3 /*Cena onde tutorial de jogar no ritmo*/ {
 			btSkip.destino = rmModule2;
 			layer_background_visible(background_tutorial, true);
 			layer_background_change(background, sBkMandicueraBlur);
@@ -271,6 +269,3 @@ if room_name != "rmModule1" and room_name != "rmModule2" {
 	instance_destroy(oPersons);
 	if ds_exists(objects, ds_type_list) ds_list_destroy(objects);
 }
-
-//DEBUG
-if keyboard_check_pressed(vk_f1) debug = !debug;
