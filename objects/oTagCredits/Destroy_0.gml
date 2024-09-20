@@ -1,1 +1,1 @@
-transition(rm_menu);
+transition(rmMenu);

@@ -9,7 +9,7 @@ sucess = 0;
 fails = 0;
 stopSoundAlarm = false;
 
-timer_vel = .03; //mudar para .01
+timer_vel = .01;
 isShowingSpriteCutscene = false;
 sceneIsNow = 1;
 stopCreateEnemy = false;
