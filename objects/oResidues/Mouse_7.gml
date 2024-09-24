@@ -1,4 +1,5 @@
 clicado = false;
+oController.isHudGuaraActive = true;
 
 var _inst_lixeira = instance_position(x, y, oTrash);
 

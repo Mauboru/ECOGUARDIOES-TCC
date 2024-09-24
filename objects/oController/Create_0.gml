@@ -7,4 +7,9 @@ ds_list_add(objects, oPersons);
 
 destroyed = false;
 
+// VARIABLES HUD GUARA
+isHudGuaraActive = false;
+timerHudMax = 10;
+timerHud = timerHudMax;
+
 intervalBetweenWaves();

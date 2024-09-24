@@ -42,9 +42,7 @@ switch (room_name) {
 			if timer <= 5 and _quantidade_existente != 0 {
 				stopCreateEnemy = true;
 			}
-			#endregion
-		
-			#region Events
+			
 			if initTruckInGame and !intervalWave {
 				if !instance_exists(oTruck) instance_create_layer(0, 620, "Instances", oTruck);
 			}
@@ -54,13 +52,19 @@ switch (room_name) {
 				stopCreateEnemy = true;
 				sceneIsNow = 2;
 			}
+			
 			#endregion
 		
-			#region HUD
-		
-			if oHudGuara.image_index != 0 and stopAlarm == false {
-				stopAlarm = true;
-				alarm[1] = 100;
+			#region HUD GUARA
+			
+			if isHudGuaraActive {
+				timerHud -= .2;
+				
+				if timerHud <= 0 {
+					oHudGuara.sprite_index = sHudGuara;
+					timerHud = timerHudMax;
+					isHudGuaraActive = false;
+				}
 			}
 		
 			#endregion

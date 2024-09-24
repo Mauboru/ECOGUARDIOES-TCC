@@ -1,6 +1,6 @@
 randomize();
 
-qtd_lixo = 200;
+qtd_lixo = 12;
 tam_sprite = 5;
 min_time_add = 20;
 max_time_add = 100;
