@@ -1,12 +1,16 @@
-//globalvar background, background_tutorial;
+globalvar area_x, area_width;
 
-//background = layer_background_get_id("Backgrounds");
-//background_tutorial = layer_background_get_id("Tutorial");
+area_x = 106;
+area_width = 306;
 
 function verifyPoints(_x) {
-	if _x > 200 and _x < 250 return "Perfeito";
-	else if (_x > 180 and _x < 200) || (_x > 250 and _x < 270) return "Boa";
-	else return "Ruim";
+    if (_x >= (area_x + 75) and _x <= (area_width - 75)) {
+        return "Perfeito";
+    } else if (_x >= (area_x + 50) and _x <= (area_width - 50)){
+		return "Boa";	
+	} else {
+		return "Ruim";
+	}
 }
 
 function endGame() {

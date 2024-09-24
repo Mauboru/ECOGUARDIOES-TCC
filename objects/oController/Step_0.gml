@@ -193,18 +193,17 @@ switch (room_name) {
 			#endregion
 	
 			#region PAUSE
-		
-			if instance_exists(oNotes) {
-				if in_pause {
-					oNotes.speed = 0;
-				} else {
-					oNotes.speed -= 1.5;
-				}
+			var instancesLayer = layer_get_id("Instances");
+			
+			if in_pause {
+				instance_deactivate_object(oDrum);
+				speed = 0;
+			} else {
+				instance_activate_object(oDrum);
+				speed -= 1.5;
 			}
 		
 			#endregion
-		
-			if keyboard_check_pressed(vk_f1) endGame();
 		
 		break;
 	
@@ -219,6 +218,7 @@ switch (room_name) {
 	#region SCENES
 	case "rmScene":
 		var btSkip = instance_create_layer(416, 736, "UI", oSkip);
+		var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
 		var background = layer_background_get_id("Backgrounds");
 		btSkip.caracteres = "k";
 		btSkip.texto = "Pular";
@@ -241,7 +241,7 @@ switch (room_name) {
 			sceneIsNow = 0;		
 		} else if sceneIsNow == 3 /*Cena onde tutorial de jogar no ritmo*/ {
 			btSkip.destino = rmModule2;
-			layer_background_visible(background_tutorial, true);
+			oTutorial.sprite_index = sModule2Tutorial;
 			layer_background_change(background, sBkMandicueraBlur);
 			sceneIsNow = 0;
 		}

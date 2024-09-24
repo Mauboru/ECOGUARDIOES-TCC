@@ -14,8 +14,8 @@ if in_pause {
 	texto = "Resumir";
 	x = room_width/2;
 	y = room_height/2;
-	audio_pause_sound(snd_tema);
 	layer_set_visible(blur, true);
+	audio_pause_all();
 	
 } else {
 	instance_destroy(oBtReturn);
@@ -26,6 +26,6 @@ if in_pause {
 	x = 72;
 	y = 48;
 	layer_enable_fx("Effect", false);
-	audio_resume_sound(snd_tema);
 	layer_set_visible(blur, false);
+	audio_resume_all();
 }
