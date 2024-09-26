@@ -7,11 +7,11 @@ image_xscale = spriteWidth / 20;
 image_yscale = spriteHeight / 16;
 
 if isSelected {
-	image_blend = merge_color(image_blend, hover_color, 0.1);
+	image_blend = merge_color(image_blend, hover_color, 0.5);
 	if mouse_check_button_pressed(k_accept){
 		audio_play_sound(snd_fx_select, 1, false);
 		if destino != noone transition(destino)
 	}
 }else{
-	image_blend = merge_color(image_blend, base_color, 0.1);
+	image_blend = merge_color(image_blend, base_color, 1);
 }

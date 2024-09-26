@@ -1,3 +1,3 @@
-x -= speed;
+y += speed;
 
 if x < 0 instance_destroy();

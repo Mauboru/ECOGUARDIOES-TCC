@@ -3,26 +3,19 @@ image_xscale = 1.2;
 image_yscale = 1.2;
 alarm[0] = 10;
 
-print(area_x);
-print(area_width);
-print(oNotes.x);
+var firstNote = instance_nearest(x, y, oNotes);
 
-var nota = instance_place(mouse_x, mouse_y, oNotes);
-
-if (nota != noone) {
-    var _verify = verifyPoints(nota.x);
-    var _points = instance_create_layer(room_width / 2, room_height / 2, "Instances", oStats);
-
-    if (_verify == "Perfeito") {
-        pontos += 10;
-        _points.image_index = 0;
-    } else if (_verify == "Boa") {
-        pontos += 5;
-        _points.image_index = 1;
-    } else if (_verify == "Ruim") {
-        pontos -= 10;
-        _points.image_index = 2;
+if (firstNote != noone) {
+    if (position_meeting(firstNote.x, firstNote.y, cBad)) {
+		print("Erro!");
+        instance_destroy(firstNote);
     }
-
-    instance_destroy(nota);
+    else if (position_meeting(firstNote.x, firstNote.y, cGood)) {
+        print("Acerto Bom!");
+        instance_destroy(firstNote);
+    }
+    else if (position_meeting(firstNote.x, firstNote.y, cPerfect)) {
+		print("Acerto Perfeito!");
+        instance_destroy(firstNote); 
+    }
 }

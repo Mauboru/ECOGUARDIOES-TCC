@@ -1,1 +1,1 @@
-instance_create_layer(460, room_height/2 + 60, "Instances", oNotes);
+instance_create_layer(room_width/2, 0, "Instances", oNotes);

@@ -151,33 +151,6 @@ switch (room_name) {
 		break;
 		#endregion
 	
-		#region FIM DE JOGO
-		case "rm_fim_de_jogo":
-			#region Water Effect
-		    var _layer_id = layer_get_id("bk_water");
-		    var _new_y = layer_get_y(_layer_id);
-		
-			if  (_new_y <= 500) {
-				_new_y = 500;
-			} else {
-				 _new_y -= random_range(.8, 1.5)
-				layer_y(_layer_id,  _new_y);
-			}
-		
-			if (oLimit.y > 552) oLimit.phy_position_y -= .4;
-			if (oLimit.y < 552) oLimit.phy_position_y += 50;
-			#endregion
-
-			wave = 0;
-			intervalWave = false;
-			stopCreateEnemy = false;
-			initTruckInGame = false;
-			addMoreResidues = false;
-		
-		    if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
-		break;
-		#endregion
-	
 	#endregion
 	
 	#region MODULE 2
@@ -193,7 +166,6 @@ switch (room_name) {
 			#endregion
 	
 			#region PAUSE
-			var instancesLayer = layer_get_id("Instances");
 			
 			if in_pause {
 				instance_deactivate_object(oDrum);
@@ -213,6 +185,33 @@ switch (room_name) {
 	
 	#region MODULE 3
 	
+	#endregion
+	
+	#region FIM DE JOGO
+	case "rm_fim_de_jogo":
+		#region Water Effect
+		var _layer_id = layer_get_id("bk_water");
+		var _new_y = layer_get_y(_layer_id);
+		
+		if  (_new_y <= 500) {
+			_new_y = 500;
+		} else {
+				_new_y -= random_range(.8, 1.5)
+			layer_y(_layer_id,  _new_y);
+		}
+		
+		if (oLimit.y > 552) oLimit.phy_position_y -= .4;
+		if (oLimit.y < 552) oLimit.phy_position_y += 50;
+		#endregion
+
+		wave = 0;
+		intervalWave = false;
+		stopCreateEnemy = false;
+		initTruckInGame = false;
+		addMoreResidues = false;
+		
+		if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
+	break;
 	#endregion
 	
 	#region SCENES

@@ -1,9 +1,5 @@
 randomize();
 
-globalvar index_selecionado;
-
-index_selecionado = false;
-
 clicado = false;
 x_anterior = x;
 y_anterior = y;
