@@ -1,5 +1,9 @@
 randomize();
 
+globalvar index_selecionado;
+
+index_selecionado = false;
+
 clicado = false;
 x_anterior = x;
 y_anterior = y;
@@ -14,22 +18,18 @@ else tipo = choose(0,2);
 switch (tipo) {
     case papel:
         tipo = "papel";
-		sprite = 0;
-		image_index = sprite;
+		image_index = 0;
         break;
     case vidro:
         tipo = "vidro";
-		sprite = 1;
-		image_index = sprite;
+		image_index = 1;
         break;
     case plastico:
         tipo = "plastico";
-		sprite = 2;
-		image_index = sprite;
+		image_index = 2;
         break;
     case metal:
         tipo = "metal";
-		sprite = 3;
-		image_index = sprite;
+		image_index = 3;
         break;
 }

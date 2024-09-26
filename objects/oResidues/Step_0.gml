@@ -14,4 +14,5 @@ if rmName == "rm_fim_de_jogo"{
 	}
 }
 
-if rmName != "rmModule1" and rmName != "rm_fim_de_jogo" instance_destroy()
+
+if rmName != "rmModule1" and rmName != "rm_fim_de_jogo" instance_destroy();

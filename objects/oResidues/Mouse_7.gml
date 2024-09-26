@@ -2,6 +2,15 @@ clicado = false;
 oController.isHudGuaraActive = true;
 
 var _inst_lixeira = instance_position(x, y, oTrash);
+var residueInPosition = instance_position(mouse_x, mouse_y, oResidues);
+
+with (oTrash) {
+    if (tipo == residueInPosition.tipo) {
+        sprite_index = sTrash;
+		image_xscale = .3;
+		image_yscale = .3;
+    }
+}
 
 if (_inst_lixeira != noone && _inst_lixeira.destacado && tipo == _inst_lixeira.tipo) {
 	pontos += 10;
