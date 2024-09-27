@@ -46,6 +46,15 @@ function intervalBetweenWaves(){
 	if wave != 1 instance_create_layer(x, y, "Instances", oWaveTimer);
 }
 
+function reiniciar(){
+	stopCreateEnemy = false;
+	initTruckInGame = false;
+	timerMax = 60;
+	timer = timerMax;
+	wave = 1;
+	addMoreResidues = false;
+}
+
 function drawing(_font,  _color, _valign, _halign, _x, _y, _text){
 	draw_set_font(_font);
 	draw_set_valign(_valign);

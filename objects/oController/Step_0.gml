@@ -12,19 +12,21 @@ switch (room_name) {
 			if (!audio_is_playing(snd_tema)) audio_play_sound(snd_tema, 1, 1);
 		
 			#region TIMER
-				if timer > 0 and intervalWave == false and in_pause == false {
-					timer -= timer_vel;
+			
+			if timer > 0 and intervalWave == false and in_pause == false {
+				timer -= timer_vel;
+			}
+			if timer <= 0 {
+				if wave == 3 {
+					transition(rmScene);
+					exit;
+				} else if wave == 7 {
+					transition(rm_fim_de_jogo);
+					exit;
 				}
-				if timer <= 0 {
-					if wave == 3 {
-						transition(rmScene);
-						exit;
-					} else if wave == 7 {
-						transition(rm_fim_de_jogo);
-						exit;
-					}
-					intervalBetweenWaves();	
-				}
+				intervalBetweenWaves();	
+			}
+				
 			#endregion
 
 			#region ENEMIES
@@ -251,6 +253,7 @@ switch (room_name) {
 	case "rmMenu":
 		if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
 		sceneIsNow = 1;
+		reiniciar();
 	break;
 	#endregion
 	

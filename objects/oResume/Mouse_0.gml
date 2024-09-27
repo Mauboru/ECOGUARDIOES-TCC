@@ -1,0 +1,1 @@
+if room_get_name(room) == "rm_fim_de_jogo" reiniciar();
