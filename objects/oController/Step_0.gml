@@ -9,6 +9,8 @@ switch (room_name) {
 	
 		#region JOGO
 		case "rmModule1":
+		
+		print(instance_number(oResidues));
 			if (!audio_is_playing(snd_tema)) audio_play_sound(snd_tema, 1, 1);
 		
 			#region TIMER
@@ -30,18 +32,19 @@ switch (room_name) {
 			#endregion
 
 			#region ENEMIES
-			var _quantidade_desejada = 10;
-			var _quantidade_existente = instance_number(oPersons);
-			var _instancias_a_adicionar = _quantidade_desejada - _quantidade_existente;
-			_instancias_a_adicionar = min(_instancias_a_adicionar, 2);
+			var qtd_desejada = 6;
+			var qtd_existente = instance_number(oPersons);
+			var inst_a_add = qtd_desejada - qtd_existente;
+			
+			inst_a_add = min(inst_a_add, 2);
     
-			if (_instancias_a_adicionar > 0 and not timer <= 5 and !intervalWave and initTruckInGame == false) {
-				repeat(_instancias_a_adicionar) {
-					alarm[0] = irandom_range(0, 130);
+			if (inst_a_add > 0 and not timer <= 5 and !intervalWave and initTruckInGame == false) {
+				repeat(inst_a_add) {
+					alarm[0] = irandom_range(0, 100);
 				}
 			}
 
-			if timer <= 5 and _quantidade_existente != 0 {
+			if timer <= 5 and qtd_existente != 0 {
 				stopCreateEnemy = true;
 			}
 			
@@ -227,15 +230,11 @@ switch (room_name) {
 		if sceneIsNow == 1 /*Cena onde ensina os 2 primeiros tipos de residuos*/{
 			btSkip.destino = rmModule1;
 			layer_background_change(background, sBkMangroveBlur);
-			instance_create_layer(-100, 0, "UI", oResidueCutscene);
-			instance_create_layer(-100, 0, "UI", oTrash);
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue01);
 			intervalWave = false;
 			sceneIsNow = 0;
 		} else if sceneIsNow == 2 /*Cena onde ensina os outros 2 tipos de residuos*/ {
 			layer_background_change(background, sBkMangroveBlur);
-			instance_create_layer(-100, 0, "UI", oResidueCutscene);
-			instance_create_layer(-100, 0, "UI", oTrash);
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue02);
 			wave++;
 			intervalWave = false;
