@@ -1,1 +1,2 @@
-show_message("Ainda em desenvolvimento!")
+sceneIsNow = 4;
+transition(rmScene);

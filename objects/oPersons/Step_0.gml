@@ -1,7 +1,7 @@
 var qtd_existing = instance_number(oResidues);
-var instances_add = qtd_lixo - qtd_existing;
+var inst_add = qtd_lixo - qtd_existing;
 
-if (instances_add > 0) {
+if (inst_add > 0) {
 	if alarm[0] == -1 alarm[0] = irandom_range(min_time_add, max_time_add);
 }
 

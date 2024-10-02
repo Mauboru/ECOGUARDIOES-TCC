@@ -9,8 +9,6 @@ switch (room_name) {
 	
 		#region JOGO
 		case "rmModule1":
-		
-		print(instance_number(oResidues));
 			if (!audio_is_playing(snd_tema)) audio_play_sound(snd_tema, 1, 1);
 		
 			#region TIMER
@@ -194,6 +192,7 @@ switch (room_name) {
 	
 	#region FIM DE JOGO
 	case "rm_fim_de_jogo":
+		instance_create_layer(x, y, "Instances", oAnimalsController);
 		#region Water Effect
 		var _layer_id = layer_get_id("bk_water");
 		var _new_y = layer_get_y(_layer_id);
@@ -243,6 +242,11 @@ switch (room_name) {
 			btSkip.destino = rmModule2;
 			oTutorial.sprite_index = sModule2Tutorial;
 			layer_background_change(background, sBkMandicueraBlur);
+			sceneIsNow = 0;
+		} else if sceneIsNow == 4 /*Cena onde tutorial de jogar no mercado */ {
+			btSkip.destino = rmModule3;
+			oTutorial.sprite_index = sModule3Tutorial;
+			layer_background_change(background, sBkMercadoBlur);
 			sceneIsNow = 0;
 		}
 	break;
