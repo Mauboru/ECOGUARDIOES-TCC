@@ -1,0 +1,1 @@
+jaPodeCriarNotas = true;

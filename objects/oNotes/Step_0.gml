@@ -1,3 +1,3 @@
 y += speed;
 
-if x < 0 instance_destroy();
+if y > room_height - 150 instance_destroy();

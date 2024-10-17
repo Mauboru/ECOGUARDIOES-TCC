@@ -160,7 +160,7 @@ switch (room_name) {
 	
 		#region JOGO
 		case "rmModule2":
-			if (!audio_is_playing(snd_fandango)) audio_play_sound(snd_fandango, 1, 1);
+			if (!audio_is_playing(snd_fandango)) audio_play_sound(snd_fandango, 1, 0);
 		
 			#region SCORE
 		
@@ -178,6 +178,12 @@ switch (room_name) {
 				speed -= 1.5;
 			}
 		
+			#endregion
+			
+			#region FIM DE JOGO
+			
+			if !audio_is_playing(snd_fandango) jaPodeCriarNotas = false;
+			
 			#endregion
 		
 		break;
