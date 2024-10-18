@@ -1,3 +1,5 @@
+if in_pause exit;
+
 if (countdown > 0) {
     countdown -= 1 / 60;
     text = string(floor(countdown));

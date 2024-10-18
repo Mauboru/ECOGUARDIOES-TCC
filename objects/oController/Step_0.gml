@@ -159,8 +159,11 @@ switch (room_name) {
 	#region MODULE 2
 	
 		#region JOGO
-		case "rmModule2":
-			if (!audio_is_playing(snd_fandango)) audio_play_sound(snd_fandango, 1, 0);
+		case "rmModulo2":
+			if (!audio_is_playing(musicaModule02) and !terminouMusica) {
+				audio_play_sound(musicaModule02, 1, 0);
+				terminouMusica = true;
+			}
 		
 			#region SCORE
 		
@@ -182,7 +185,10 @@ switch (room_name) {
 			
 			#region FIM DE JOGO
 			
-			if !audio_is_playing(snd_fandango) jaPodeCriarNotas = false;
+			if !audio_is_playing(musicaModule02) {
+				jaPodeCriarNotas = false;
+				transition(rmFimDeJogoModulo2);
+			}
 			
 			#endregion
 		
@@ -245,7 +251,7 @@ switch (room_name) {
 			intervalWave = false;
 			sceneIsNow = 0;		
 		} else if sceneIsNow == 3 /*Cena onde tutorial de jogar no ritmo*/ {
-			btSkip.destino = rmModule2;
+			btSkip.destino = rmModulo2;
 			oTutorial.sprite_index = sModule2Tutorial;
 			layer_background_change(background, sBkMandicueraBlur);
 			sceneIsNow = 0;
