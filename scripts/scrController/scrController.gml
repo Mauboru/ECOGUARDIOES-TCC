@@ -9,7 +9,7 @@ sucess = 0;
 fails = 0;
 stopSoundAlarm = false;
 
-timer_vel = .05;
+timer_vel = .5;
 isShowingSpriteCutscene = false;
 sceneIsNow = 1;
 stopCreateEnemy = false;
@@ -49,6 +49,7 @@ function intervalBetweenWaves(){
 function reiniciar(){
 	stopCreateEnemy = false;
 	initTruckInGame = false;
+	intervalWave = false;
 	timerMax = 60;
 	timer = timerMax;
 	wave = 1;

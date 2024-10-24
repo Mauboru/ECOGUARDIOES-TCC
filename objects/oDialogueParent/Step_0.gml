@@ -1,7 +1,7 @@
 if (showing_dialog == false) {
 	if (dialog.count() <= 0) {
 		instance_destroy();
-		transition(rmModule1);
+		transition(rmModulo1);
 		return;
 	}
 	current_dialog = dialog.pop();

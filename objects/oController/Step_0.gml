@@ -8,7 +8,7 @@ switch (room_name) {
 	#region MODULE 1
 	
 		#region JOGO
-		case "rmModule1":
+		case "rmModulo1":
 			if (!audio_is_playing(snd_tema)) audio_play_sound(snd_tema, 1, 1);
 		
 			#region TIMER
@@ -16,12 +16,13 @@ switch (room_name) {
 			if timer > 0 and intervalWave == false and in_pause == false {
 				timer -= timer_vel;
 			}
+			
 			if timer <= 0 {
 				if wave == 3 {
 					transition(rmScene);
 					exit;
 				} else if wave == 7 {
-					transition(rm_fim_de_jogo);
+					transition(rmFimDeJogoModulo1);
 					exit;
 				}
 				intervalBetweenWaves();	
@@ -203,7 +204,7 @@ switch (room_name) {
 	#endregion
 	
 	#region FIM DE JOGO
-	case "rm_fim_de_jogo":
+	case "rmFimDeJogoModulo1":
 		instance_create_layer(x, y, "Instances", oAnimalsController);
 		#region Water Effect
 		var _layer_id = layer_get_id("bk_water");
@@ -239,12 +240,13 @@ switch (room_name) {
 		btSkip.texto = "Pular";
 	
 		if sceneIsNow == 1 /*Cena onde ensina os 2 primeiros tipos de residuos*/{
-			btSkip.destino = rmModule1;
+			btSkip.destino = rmModulo1;
 			layer_background_change(background, sBkMangroveBlur);
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue01);
 			intervalWave = false;
 			sceneIsNow = 0;
 		} else if sceneIsNow == 2 /*Cena onde ensina os outros 2 tipos de residuos*/ {
+			btSkip.destino = rmModulo1;
 			layer_background_change(background, sBkMangroveBlur);
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue02);
 			wave++;
@@ -285,7 +287,7 @@ switch (room_name) {
 }
 
 //Evitando erros de instanciação continua
-if room_name != "rmModule1" and room_name != "rmModule2" {
+if room_name != "rmModulo1" and room_name != "rmModulo2" {
 	instance_destroy(oTruck);
 	instance_destroy(oPersons);
 	if ds_exists(objects, ds_type_list) ds_list_destroy(objects);
