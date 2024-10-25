@@ -24,3 +24,23 @@ function transition(_room){
 function print(text){
 	show_debug_message(string(text));
 }
+
+function wrap_text(_text, _max_width) {
+    var words = string_split(_text, " ");
+    var line = "";
+    var result = [];
+    
+    for (var i = 0; i < array_length(words); i++) {
+        var temp_line = (line == "") ? words[i] : line + " " + words[i];
+        
+        if (string_width(temp_line) > _max_width) {
+            array_push(result, line);
+            line = words[i];
+        } else {
+            line = temp_line;
+        }
+    }
+    
+    array_push(result, line);
+    return result;
+}

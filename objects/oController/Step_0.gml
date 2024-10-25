@@ -99,7 +99,7 @@ switch (room_name) {
 		                    if (i == 1) {
 		                        speed = random_range(0.8, 1.2);
 		                    }
-		                    image_speed = 3;
+		                    image_speed = 1;
 		                }
 		            }
 		        }
@@ -234,19 +234,23 @@ switch (room_name) {
 	
 	#region SCENES
 	case "rmScene":
-		var btSkip = instance_create_layer(416, 736, "UI", oSkip);
-		var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
 		var background = layer_background_get_id("Backgrounds");
-		btSkip.caracteres = "k";
-		btSkip.texto = "Pular";
-	
+		
 		if sceneIsNow == 1 /*Cena onde ensina os 2 primeiros tipos de residuos*/{
+			var btSkip = instance_create_layer(416, 736, "UI", oSkip);
+			var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
+			btSkip.caracteres = "k";
+			btSkip.texto = "Pular";
 			btSkip.destino = rmModulo1;
 			layer_background_change(background, sBkMangroveBlur);
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue01);
 			intervalWave = false;
 			sceneIsNow = 0;
 		} else if sceneIsNow == 2 /*Cena onde ensina os outros 2 tipos de residuos*/ {
+			var btSkip = instance_create_layer(416, 736, "UI", oSkip);
+			var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
+			btSkip.caracteres = "k";
+			btSkip.texto = "Pular";
 			btSkip.destino = rmModulo1;
 			layer_background_change(background, sBkMangroveBlur);
 			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue02);
@@ -254,11 +258,19 @@ switch (room_name) {
 			intervalWave = false;
 			sceneIsNow = 0;		
 		} else if sceneIsNow == 3 /*Cena onde tutorial de jogar no ritmo*/ {
+			var btSkip = instance_create_layer(416, 736, "UI", oSkip);
+			var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
+			btSkip.caracteres = "k";
+			btSkip.texto = "Pular";
 			btSkip.destino = rmModulo2;
 			oTutorial.sprite_index = sModule2Tutorial;
 			layer_background_change(background, sBkMandicueraBlur);
 			sceneIsNow = 0;
 		} else if sceneIsNow == 4 /*Cena onde tutorial de jogar no mercado */ {
+			var btSkip = instance_create_layer(416, 736, "UI", oSkip);
+			var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
+			btSkip.caracteres = "k";
+			btSkip.texto = "Pular";
 			btSkip.destino = rmModule3;
 			oTutorial.sprite_index = sModule3Tutorial;
 			layer_background_change(background, sBkMercadoBlur);
@@ -271,7 +283,8 @@ switch (room_name) {
 	case "rmMenu":
 		if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
 		sceneIsNow = 1;
-		reiniciar();
+		reiniciarModulo1();
+		reiniciarModulo2();
 	break;
 	#endregion
 	
