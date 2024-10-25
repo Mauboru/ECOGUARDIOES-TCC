@@ -204,31 +204,32 @@ switch (room_name) {
 	#endregion
 	
 	#region FIM DE JOGO
-	case "rmFimDeJogoModulo1":
+		
+		#region Modulo1
+		case "rmFimDeJogoModulo1":
 		instance_create_layer(x, y, "Instances", oAnimalsController);
+		
 		#region Water Effect
-		var _layer_id = layer_get_id("bk_water");
-		var _new_y = layer_get_y(_layer_id);
+			var _layer_id = layer_get_id("bk_water");
+			var _new_y = layer_get_y(_layer_id);
 		
-		if  (_new_y <= 500) {
-			_new_y = 500;
-		} else {
-				_new_y -= random_range(.8, 1.5)
-			layer_y(_layer_id,  _new_y);
-		}
+			if  (_new_y <= 500) {
+				_new_y = 500;
+			} else {
+					_new_y -= random_range(.8, 1.5)
+				layer_y(_layer_id,  _new_y);
+			}
 		
-		if (oLimit.y > 552) oLimit.phy_position_y -= .4;
-		if (oLimit.y < 552) oLimit.phy_position_y += 50;
+			if (oLimit.y > 552) oLimit.phy_position_y -= .4;
+			if (oLimit.y < 552) oLimit.phy_position_y += 50;
 		#endregion
 
-		wave = 0;
-		intervalWave = false;
-		stopCreateEnemy = false;
-		initTruckInGame = false;
-		addMoreResidues = false;
+		reiniciarModulo1();
 		
 		if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
-	break;
+		break;
+		#endregion
+	
 	#endregion
 	
 	#region SCENES
