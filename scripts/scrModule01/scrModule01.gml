@@ -15,7 +15,7 @@ stopSoundAlarm = false;
 countSequence = 0;
 isShowingSpriteCutscene = false;
 
-timer_vel = .5;
+timer_vel = .05;
 timerMax = 60;
 timer = timerMax;
 

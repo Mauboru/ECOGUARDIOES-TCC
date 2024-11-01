@@ -260,10 +260,12 @@ switch (room_name) {
 		} else if sceneIsNow == 3 /*Cena onde tutorial de jogar no ritmo*/ {
 			var btSkip = instance_create_layer(416, 736, "UI", oSkip);
 			var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
+			var dialogue = instance_create_layer(room_width/2, room_height/2 - 50, "UI", oDialogue03);
 			btSkip.caracteres = "k";
 			btSkip.texto = "Pular";
 			btSkip.destino = rmModulo2;
-			oTutorial.sprite_index = sModule2Tutorial;
+			dialogue.image_xscale = .4;
+			dialogue.image_yscale = .4;
 			layer_background_change(background, sBkMandicueraBlur);
 			sceneIsNow = 0;
 		} else if sceneIsNow == 4 /*Cena onde tutorial de jogar no mercado */ {

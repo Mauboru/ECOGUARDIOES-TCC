@@ -55,7 +55,9 @@ if room_get_name(room) == "rmModulo1" {
 	
 	draw_set_alpha(1);
 	
-} else if room_get_name(room) == "rmModulo2" {
+}
+
+else if room_get_name(room) == "rmModulo2" {
 	if typeText == "scores" {
 		var _texto = "Pontos:" + _pontos;
 		var _length = string_length(_texto);
@@ -71,4 +73,42 @@ if room_get_name(room) == "rmModulo1" {
 		drawing(fnt_ui, c_white, fa_middle, fa_center, x, y, _texto);
 		draw_sprite(sScore, 0, x + _length * 8, y);
 	}
-} else drawing(fnt_pixel, c_white, fa_middle, fa_center, room_width/2, 60, "Apoiadores");
+} 
+
+else if room_get_name(room) == "rmFimDeJogoModulo1" {
+	if typeText == "scores" {
+		var _texto = "Pontos:" + _pontos;
+		var _length = string_length(_texto);
+		var _rect_left = x - _length * 6;
+		var _rect_right = x + _length * 10;
+		var _rect_top = y - 20;
+		var _rect_bottom = y + 20;
+
+		draw_set_alpha(0.5);
+		draw_set_color(c_black);
+		draw_rectangle(_rect_left, _rect_top, _rect_right, _rect_bottom, false);
+		draw_set_alpha(1);
+		drawing(fnt_ui, c_white, fa_middle, fa_center, x, y, _texto);
+		draw_sprite(sScore, 0, x + _length * 8, y);
+	}
+}
+
+else if room_get_name(room) == "rmFimDeJogoModulo2" {
+	if typeText == "scores" {
+		var _texto = "Pontos:" + _pontos;
+		var _length = string_length(_texto);
+		var _rect_left = x - _length * 6;
+		var _rect_right = x + _length * 10;
+		var _rect_top = y - 20;
+		var _rect_bottom = y + 20;
+
+		draw_set_alpha(0.5);
+		draw_set_color(c_black);
+		draw_rectangle(_rect_left, _rect_top, _rect_right, _rect_bottom, false);
+		draw_set_alpha(1);
+		drawing(fnt_ui, c_white, fa_middle, fa_center, x, y, _texto);
+		draw_sprite(sScore, 0, x + _length * 8, y);
+	}
+} 
+
+else drawing(fnt_pixel, c_white, fa_middle, fa_center, room_width/2, 60, "Apoiadores");
