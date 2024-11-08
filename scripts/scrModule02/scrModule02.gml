@@ -5,7 +5,7 @@ area_width = 306;
 jaPodeCriarNotas = false;
 speed_counter = 0;
 terminouMusica = false;
-musicaModule02 = snd_fandango;
+musicaModule02 = snd_modulo2;
 
 function endGame() {
 	instance_destroy(oNotes);

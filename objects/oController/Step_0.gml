@@ -9,7 +9,7 @@ switch (room_name) {
 	
 		#region JOGO
 		case "rmModulo1":
-			if (!audio_is_playing(snd_tema)) audio_play_sound(snd_tema, 1, 1);
+			if (!audio_is_playing(snd_modulo1)) audio_play_sound(snd_modulo1, 1, 1);
 		
 			#region TIMER
 			
@@ -201,6 +201,41 @@ switch (room_name) {
 	
 	#region MODULE 3
 	
+		#region JOGO
+		case "rmModulo3":
+			if (!audio_is_playing(musicaModule03) and !terminouMusica) {
+				audio_play_sound(musicaModule03, 1, 0);
+				terminouMusica = true;
+			}
+		
+			#region SCORE
+		
+			if pontos < 0 pontos = 0;
+		
+			#endregion
+	
+			#region PAUSE
+			
+			if in_pause {
+				//pausa algo?
+			} else {
+				//libera algo?
+			}
+		
+			#endregion
+			
+			#region FIM DE JOGO
+			
+			if !audio_is_playing(musicaModule03) {
+				transition(rmFimDeJogoModulo3);
+			}
+			
+			#endregion
+		
+		break;
+	
+		#endregion
+		
 	#endregion
 	
 	#region FIM DE JOGO
