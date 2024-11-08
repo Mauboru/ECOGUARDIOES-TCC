@@ -238,43 +238,40 @@ switch (room_name) {
 		
 		if sceneIsNow == 1 /*Cena onde ensina os 2 primeiros tipos de residuos*/{
 			var btSkip = instance_create_layer(416, 736, "UI", oSkip);
-			var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
+			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue01);
 			btSkip.caracteres = "k";
 			btSkip.texto = "Pular";
 			btSkip.destino = rmModulo1;
 			layer_background_change(background, sBkMangroveBlur);
-			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue01);
 			intervalWave = false;
 			sceneIsNow = 0;
 		} else if sceneIsNow == 2 /*Cena onde ensina os outros 2 tipos de residuos*/ {
 			var btSkip = instance_create_layer(416, 736, "UI", oSkip);
-			var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
+			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue02);
 			btSkip.caracteres = "k";
 			btSkip.texto = "Pular";
 			btSkip.destino = rmModulo1;
 			layer_background_change(background, sBkMangroveBlur);
-			instance_create_layer(room_width/2, room_height/2, "UI", oDialogue02);
 			wave++;
 			intervalWave = false;
 			sceneIsNow = 0;		
 		} else if sceneIsNow == 3 /*Cena onde tutorial de jogar no ritmo*/ {
 			var btSkip = instance_create_layer(416, 736, "UI", oSkip);
-			var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
 			var dialogue = instance_create_layer(room_width/2, room_height/2 - 50, "UI", oDialogue03);
 			btSkip.caracteres = "k";
 			btSkip.texto = "Pular";
 			btSkip.destino = rmModulo2;
-			dialogue.image_xscale = .4;
-			dialogue.image_yscale = .4;
+			dialogue.image_xscale = .3;
+			dialogue.image_yscale = .3;
 			layer_background_change(background, sBkMandicueraBlur);
 			sceneIsNow = 0;
 		} else if sceneIsNow == 4 /*Cena onde tutorial de jogar no mercado */ {
+			if (!audio_is_playing(snd_dog)) audio_play_sound(snd_dog, 1, 1);
 			var btSkip = instance_create_layer(416, 736, "UI", oSkip);
-			var oTutorial = instance_create_layer(room_width/2, room_height/2, "UI", oGifTutorial);
+			var dialogue = instance_create_layer(room_width/2, room_height/2 - 50, "UI", oDialogue04);
 			btSkip.caracteres = "k";
 			btSkip.texto = "Pular";
-			btSkip.destino = rmModule3;
-			oTutorial.sprite_index = sModule3Tutorial;
+			btSkip.destino = rmModulo3;
 			layer_background_change(background, sBkMercadoBlur);
 			sceneIsNow = 0;
 		}
