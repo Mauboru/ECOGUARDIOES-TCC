@@ -1,30 +1,30 @@
-// Defina a posição de destino
 var destino_x = 96;
 var destino_y = 320;
-
-// Defina a quantidade de "pulos" (mude os valores conforme necessário)
 var pulo = 5;
+var amplitude = 10;
+var velocidade_onda = 0.06;
 
-// Parâmetros para o movimento ondulado (subindo e descendo)
-var amplitude = 10;  // A amplitude do movimento vertical (quanto ele sobe/ desce)
-var velocidade_onda = 0.06;  // Velocidade da onda (quanto mais lento, mais suave o movimento vertical)
-
-// Verifica se o cliente ainda não chegou no destino
 if (x != destino_x) {
-    // Movimento para a posição destino com "pulinho" horizontal
     if (x < destino_x) {
-        x += pulo;  // Move para a direita
+        x += pulo;
     } else if (x > destino_x) {
-        x -= pulo;  // Move para a esquerda
+        x -= pulo;
     }
     
-    // Garante que o objeto não ultrapasse a posição de destino
     if (abs(x - destino_x) < pulo) {
         x = destino_x;
     }
 
-    // Movimento ondulado para cima e para baixo enquanto se move para a direita
     y = destino_y + amplitude * sin(velocidade_onda * x);
 } else {
     sprite_index = sClientePombo;
+	//remover os insatcens mas n permitir q crie varios
+	if !instance_exists(oCaixaDialogo) var pedido = instance_create_layer(x + 130, y - 140, "UI", oCaixaDialogo);
+	if !instance_exists(oNotaDinheiro) var pagamento = instance_create_layer(x + choose(250, 200, 275), y + 90, "Instances", oNotaDinheiro);
+
+	pedido.texto = "testando"; // aqui sera definido randomicamente os pedidos
+	pagamento.sprite_index = sVinte;
+	pagamento.image_angle = 90;
 }
+
+if keyboard_check_pressed(vk_up) instance_destroy();

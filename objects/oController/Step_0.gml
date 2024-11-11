@@ -207,6 +207,8 @@ switch (room_name) {
 				audio_play_sound(musicaModule03, 1, 0);
 				terminouMusica = true;
 			}
+			
+			if !instance_exists(oPomboControlador) instance_create_layer(x, y, "Instances", oPomboControlador);
 		
 			#region SCORE
 		
@@ -242,27 +244,25 @@ switch (room_name) {
 		
 		#region Modulo1
 		case "rmFimDeJogoModulo1":
-		instance_create_layer(x, y, "Instances", oAnimalsController);
+			instance_create_layer(x, y, "Instances", oAnimalsController);
 		
-		#region Water Effect
-			var _layer_id = layer_get_id("bk_water");
-			var _new_y = layer_get_y(_layer_id);
+			#region Water Effect
+				var _layer_id = layer_get_id("bk_water");
+				var _new_y = layer_get_y(_layer_id);
 		
-			if  (_new_y <= 500) {
-				_new_y = 500;
-			} else {
-					_new_y -= random_range(.8, 1.5)
-				layer_y(_layer_id,  _new_y);
-			}
+				if  (_new_y <= 500) {
+					_new_y = 500;
+				} else {
+						_new_y -= random_range(.8, 1.5)
+					layer_y(_layer_id,  _new_y);
+				}
 		
-			if (oLimit.y > 552) oLimit.phy_position_y -= .4;
-			if (oLimit.y < 552) oLimit.phy_position_y += 50;
-		#endregion
-
-		reiniciarModulo1();
-		
-		if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
-		break;
+				if (oLimit.y > 552) oLimit.phy_position_y -= .4;
+				if (oLimit.y < 552) oLimit.phy_position_y += 50;
+			#endregion
+			
+			if (!audio_is_playing(snd_menu)) audio_play_sound(snd_menu, 1, 1);
+			break;
 		#endregion
 	
 	#endregion
