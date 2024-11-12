@@ -17,14 +17,58 @@ if (x != destino_x) {
 
     y = destino_y + amplitude * sin(velocidade_onda * x);
 } else {
-    sprite_index = sClientePombo;
-	//remover os insatcens mas n permitir q crie varios
-	if !instance_exists(oCaixaDialogo) var pedido = instance_create_layer(x + 130, y - 140, "UI", oCaixaDialogo);
-	if !instance_exists(oNotaDinheiro) var pagamento = instance_create_layer(x + choose(250, 200, 275), y + 90, "Instances", oNotaDinheiro);
+    if (!pomboExiste) {
+        pomboExiste = true;
+        sprite_index = sClientePombo;
 
-	pedido.texto = "testando"; // aqui sera definido randomicamente os pedidos
-	pagamento.sprite_index = sVinte;
-	pagamento.image_angle = 90;
+        var caixa = instance_create_layer(x + 130, y - 140, "UI", oCaixaDialogo);
+        
+        var precoPastel = 10;
+        var precoCafe = 5;
+
+        var pedidoUm = choose(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        var pedidoDois = choose(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        caixa.texto = "Eu quero " + string(pedidoUm) + "x pastéis e " + string(pedidoDois) + "x Cafés";
+
+        var valorPedido = (pedidoUm * precoPastel) + (pedidoDois * precoCafe);
+        var totalPagamento = 0;
+        var nota_x = x + 170; 
+        var nota_y = y + 90;
+
+        while (totalPagamento < valorPedido) {
+            var nota = choose(5, 10, 20, 50, 100);
+            totalPagamento += nota;
+
+            var pagamento = instance_create_layer(nota_x, nota_y, "Instances", oNotaDinheiro);
+			
+			pagamento.image_xscale = .8;
+			pagamento.image_yscale = .8;
+            
+            if (nota == 100) {
+                pagamento.sprite_index = sCem;
+            } else if (nota == 50) {
+                pagamento.sprite_index = sCinquenta;
+            } else if (nota == 20) {
+                pagamento.sprite_index = sVinte;
+            } else if (nota == 10) {
+                pagamento.sprite_index = sDez;
+            } else if (nota == 5) {
+                pagamento.sprite_index = sCinco;
+            }
+
+            //pagamento.image_angle = 90;
+
+            nota_x += 30;
+        }
+		print("Total Pagamento: " + string(totalPagamento));
+		print("Valor do Pedido: " + string(valorPedido));
+    }
 }
 
-if keyboard_check_pressed(vk_up) instance_destroy();
+if keyboard_check_pressed(vk_up) {
+    pomboExiste = false;
+    instance_destroy(oClientePombo);
+    instance_destroy(oCaixaDialogo);
+    instance_destroy(oNotaDinheiro);
+}

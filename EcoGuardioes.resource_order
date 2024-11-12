@@ -144,6 +144,7 @@
     {"name":"sCaixa","order":5,"path":"sprites/sCaixa/sCaixa.yy",},
     {"name":"sCaixaDialogo","order":4,"path":"sprites/sCaixaDialogo/sCaixaDialogo.yy",},
     {"name":"sCarangueijo","order":8,"path":"sprites/sCarangueijo/sCarangueijo.yy",},
+    {"name":"sCem","order":4,"path":"sprites/sCem/sCem.yy",},
     {"name":"sCinquenta","order":3,"path":"sprites/sCinquenta/sCinquenta.yy",},
     {"name":"sClientePombo","order":7,"path":"sprites/sClientePombo/sClientePombo.yy",},
     {"name":"sClientePomboDinheiro","order":8,"path":"sprites/sClientePomboDinheiro/sClientePomboDinheiro.yy",},
