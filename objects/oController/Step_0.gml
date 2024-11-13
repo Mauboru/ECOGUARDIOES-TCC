@@ -209,6 +209,12 @@ switch (room_name) {
 			}
 			
 			if !instance_exists(oPomboControlador) instance_create_layer(x, y, "Instances", oPomboControlador);
+			
+			#region TROCO
+			
+						
+			
+			#endregion
 		
 			#region SCORE
 		
