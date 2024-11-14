@@ -4,6 +4,6 @@ if (destacado) {
     draw_self();
 }
 
-if room_get_name(room) != "rmModule1" return;
+if room_get_name(room) != "rmModulo1" return;
 
 drawing(fnt_pixel, c_white, fa_middle, fa_center, x, y + 55, tipo);
