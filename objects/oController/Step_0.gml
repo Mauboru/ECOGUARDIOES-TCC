@@ -31,7 +31,7 @@ switch (room_name) {
 			#endregion
 
 			#region ENEMIES
-			var qtd_desejada = 6;
+			var qtd_desejada = 5;
 			var qtd_existente = instance_number(oPersons);
 			var inst_a_add = qtd_desejada - qtd_existente;
 			

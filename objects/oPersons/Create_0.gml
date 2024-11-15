@@ -1,6 +1,6 @@
 randomize();
 
-qtd_lixo = 8;
+qtd_lixo = 10;
 amplitude = 3;
 frequency = .3;
 time = 0;

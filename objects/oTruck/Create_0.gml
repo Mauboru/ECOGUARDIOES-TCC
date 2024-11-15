@@ -1,5 +1,7 @@
 randomize();
 
+depth = -10000;
+
 qtd_lixo = 12;
 tam_sprite = 5;
 min_time_add = 20;

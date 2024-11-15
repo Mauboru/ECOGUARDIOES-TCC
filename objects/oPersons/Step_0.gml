@@ -9,7 +9,7 @@ if !in_pause {
 	x += lengthdir_x(speed, direction);
 	y += lengthdir_y(speed, direction);
 
-	if (x + tam_sprite <= 0 || x + tam_sprite >= room_width) {
+	if (x + tam_sprite <= 0 || x + tam_sprite >= room_width + (tam_sprite * 2)) {
 		limite--;
 	    direction = 180 - direction;
 		image_xscale *= -1;

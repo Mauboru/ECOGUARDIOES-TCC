@@ -16,7 +16,7 @@ countSequence = 0;
 isShowingSpriteCutscene = false;
 
 timer_vel = .02;
-timerMax = 60;
+timerMax = 45;
 timer = timerMax;
 
 stopCreateEnemy = false;
@@ -54,7 +54,6 @@ function reiniciarModulo1(){
 	stopCreateEnemy = false;
 	initTruckInGame = false;
 	intervalWave = false;
-	timerMax = 60;
 	timer = timerMax;
 	wave = 1;
 	pontos = 0;
