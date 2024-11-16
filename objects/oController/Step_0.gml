@@ -273,7 +273,7 @@ switch (room_name) {
 	
 	#endregion
 	
-	#region SCENES
+	#region CENAS
 	case "rmScene":
 		var background = layer_background_get_id("Backgrounds");
 		
@@ -328,7 +328,7 @@ switch (room_name) {
 	break;
 	#endregion
 	
-	#region MAP
+	#region MAPA
 	case "rmMap":
 		if (!audio_is_playing(snd_map)) audio_play_sound(snd_map, 1, 0);
 		
