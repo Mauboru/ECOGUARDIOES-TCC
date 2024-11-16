@@ -50,6 +50,13 @@ function intervalBetweenWaves(){
 	if wave != 1 instance_create_layer(x, y, "Instances", oWaveTimer);
 }
 
+function redimensionarBotao(textoLargura, espacamentoLargura, textoAltura, espacamentoAltura){
+	spriteWidth = string_width(textoLargura) + espacamentoLargura;
+	spriteHeight = string_height(textoAltura) + espacamentoAltura;
+	image_xscale = spriteWidth / 20; 
+	image_yscale = spriteHeight / 16;
+}
+
 function reiniciarModulo1(){
 	stopCreateEnemy = false;
 	initTruckInGame = false;

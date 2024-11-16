@@ -18,6 +18,8 @@ if in_pause {
 	layer_set_visible(blur, true);
 	audio_pause_all();
 	
+	redimensionarBotao(texto, 8, texto, 4);
+	
 } else {
 	instance_destroy(oBtReturn);
 	instance_destroy(oBtExit);
@@ -29,4 +31,6 @@ if in_pause {
 	layer_enable_fx("Effect", false);
 	layer_set_visible(blur, false);
 	audio_resume_all();
+	
+	redimensionarBotao(texto, 8, texto, 4);
 }
