@@ -8,7 +8,7 @@ terminouMusica = false;
 musicaModule02 = snd_modulo2;
 
 function endGame() {
-	instance_destroy(oNotes);
+	instance_destroy(oNotaEsq);
 	audio_stop_all();
 }
 
