@@ -1,4 +1,5 @@
 somou = false;
+segurado = false;
 
 if valor == 5 sprite_index = sCinco;
 if valor == 10 sprite_index = sDez;

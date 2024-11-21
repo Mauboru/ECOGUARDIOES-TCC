@@ -4,6 +4,7 @@ var pulo = 5;
 var amplitude = 10;
 var velocidade_onda = 0.06;
 
+//Movimentação
 if (x != destino_x) {
     if (x < destino_x) {
         x += pulo;
@@ -17,6 +18,7 @@ if (x != destino_x) {
 
     y = destino_y + amplitude * sin(velocidade_onda * x);
 } else {
+	//Criando notas de dinheiro
     if (!pomboExiste) {
         pomboExiste = true;
         sprite_index = sClientePombo;
@@ -31,8 +33,8 @@ if (x != destino_x) {
 
         caixa.texto = "Eu quero " + string(pedidoUm) + "x pastéis e " + string(pedidoDois) + "x Cafés";
 
-        var valorPedido = (pedidoUm * precoPastel) + (pedidoDois * precoCafe);
-        var totalPagamento = 0;
+        valorPedido = (pedidoUm * precoPastel) + (pedidoDois * precoCafe);
+        totalPagamento = 0;
         var nota_x = x + 170; 
         var nota_y = y + 90;
 
@@ -57,18 +59,27 @@ if (x != destino_x) {
                 pagamento.sprite_index = sCinco;
             }
 
-            //pagamento.image_angle = 90;
-
+			troco = (abs(valorPedido - totalPagamento));
             nota_x += 30;
         }
-		print("Total Pagamento: " + string(totalPagamento));
-		print("Valor do Pedido: " + string(valorPedido));
     }
 }
 
-if keyboard_check_pressed(vk_up) {
-    pomboExiste = false;
-    instance_destroy(oClientePombo);
-    instance_destroy(oCaixaDialogo);
-    instance_destroy(oNotaDinheiro);
+if (soma > troco) {
+	print("VALEU TROUXA");
+	saldo += totalPagamento;
+	saldo_negativo = totalPagamento - soma;
+	soma = 0;
+	valorPedido = 0;
+	instance_destroy(oCaixaDialogo);
+	instance_destroy();
+} else if (soma == troco) {
+	print("VALEU AMIGO");
+	saldo += totalPagamento;
+	soma = 0;
+	valorPedido = 0;
+	instance_destroy(oCaixaDialogo);
+	instance_destroy();
 }
+
+saldo_total = saldo_negativo - saldo;
