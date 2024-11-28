@@ -8,10 +8,10 @@ if (jaPodeCriarNotas) {
         if (time_since_last_creation >= time_interval) {
             // Cria duas notas à esquerda
             instance_create_layer(room_width / 2 - 100, 0, "Instances", oNota);
-            instance_create_layer(room_width / 2 - 100, -100, "Instances", oNota);
+            instance_create_layer(room_width / 2 - 100, -120, "Instances", oNota);
 
             // Cria uma nota à direita
-            var direita = instance_create_layer(room_width / 2 + 100, -240, "Instances", oNota);
+            var direita = instance_create_layer(room_width / 2 + 100, -280, "Instances", oNota);
 			direita.isDireita = true;
 			
             // Reseta o temporizador
@@ -22,5 +22,3 @@ if (jaPodeCriarNotas) {
 
 // Atualiza o temporizador
 time_since_last_creation += .1;
-
-print(time_since_last_creation);
