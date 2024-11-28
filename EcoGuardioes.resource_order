@@ -151,6 +151,7 @@
     {"name":"sClientePomboDinheiro","order":8,"path":"sprites/sClientePomboDinheiro/sClientePomboDinheiro.yy",},
     {"name":"sClock","order":1,"path":"sprites/sClock/sClock.yy",},
     {"name":"sDez","order":1,"path":"sprites/sDez/sDez.yy",},
+    {"name":"sDinheiro","order":2,"path":"sprites/sDinheiro/sDinheiro.yy",},
     {"name":"sFandango","order":2,"path":"sprites/sFandango/sFandango.yy",},
     {"name":"sGood","order":7,"path":"sprites/sGood/sGood.yy",},
     {"name":"sHudBack","order":2,"path":"sprites/sHudBack/sHudBack.yy",},
@@ -175,7 +176,6 @@
     {"name":"sPerson3","order":2,"path":"sprites/sPerson3/sPerson3.yy",},
     {"name":"sPerson4","order":3,"path":"sprites/sPerson4/sPerson4.yy",},
     {"name":"sResidues","order":2,"path":"sprites/sResidues/sResidues.yy",},
-    {"name":"sScore","order":1,"path":"sprites/sScore/sScore.yy",},
     {"name":"sStats","order":1,"path":"sprites/sStats/sStats.yy",},
     {"name":"sTitlePause","order":1,"path":"sprites/sTitlePause/sTitlePause.yy",},
     {"name":"sTitlePoints","order":2,"path":"sprites/sTitlePoints/sTitlePoints.yy",},
@@ -185,6 +185,6 @@
     {"name":"sTutorialGif","order":3,"path":"sprites/sTutorialGif/sTutorialGif.yy",},
     {"name":"sVinte","order":2,"path":"sprites/sVinte/sVinte.yy",},
     {"name":"sWater","order":3,"path":"sprites/sWater/sWater.yy",},
-    {"name":"sWave","order":2,"path":"sprites/sWave/sWave.yy",},
+    {"name":"sWave","order":1,"path":"sprites/sWave/sWave.yy",},
   ],
 }

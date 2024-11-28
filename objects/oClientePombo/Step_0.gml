@@ -28,8 +28,8 @@ if (x != destino_x) {
         var precoPastel = 10;
         var precoCafe = 5;
 
-        var pedidoUm = choose(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        var pedidoDois = choose(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        var pedidoUm = choose(1, 2, 3, 4, 5);
+        var pedidoDois = choose(1, 2, 3, 4, 5);
 
         caixa.texto = "Eu quero " + string(pedidoUm) + "x pastéis e " + string(pedidoDois) + "x Cafés";
 
@@ -68,7 +68,7 @@ if (x != destino_x) {
 if (soma > troco) {
 	print("VALEU TROUXA");
 	saldo += totalPagamento;
-	saldo_negativo = totalPagamento - soma;
+	saldo_negativo += soma - troco;
 	soma = 0;
 	valorPedido = 0;
 	instance_destroy(oCaixaDialogo);
@@ -82,4 +82,4 @@ if (soma > troco) {
 	instance_destroy();
 }
 
-saldo_total = saldo_negativo - saldo;
+saldo_total = abs(saldo_negativo - saldo);

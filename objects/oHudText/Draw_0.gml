@@ -77,7 +77,7 @@ else if room_get_name(room) == "rmModulo2" {
 
 else if room_get_name(room) == "rmModulo3" {
 	if typeText == "saldo" {
-		var _texto = "Saldo:" + string(saldo);
+		var _texto = "Saldo:    " + string(saldo);
 		var _length = string_length(_texto);
 		var _rect_left = x - _length * 6;
 		var _rect_right = x + _length * 10;
@@ -88,11 +88,11 @@ else if room_get_name(room) == "rmModulo3" {
 		draw_set_color(c_black);
 		draw_rectangle(_rect_left, _rect_top, _rect_right, _rect_bottom, false);
 		draw_set_alpha(1);
-		drawing(fnt_ui, c_white, fa_middle, fa_center, x, y, _texto);
-		draw_sprite(sScore, 0, x + _length * 8, y);
+		drawing(fnt_ui, c_yellow, fa_middle, fa_center, x, y, _texto);
+		draw_sprite(sDinheiro, 0, x + _length * 8, y);
 	}
 	if typeText == "saldo_negativo" {
-		var _texto = "Negativo:" + string(saldo_negativo);
+		var _texto = "Negativo: " + string(saldo_negativo);
 		var _length = string_length(_texto);
 		var _rect_left = x - _length * 6;
 		var _rect_right = x + _length * 10;
@@ -103,11 +103,11 @@ else if room_get_name(room) == "rmModulo3" {
 		draw_set_color(c_black);
 		draw_rectangle(_rect_left, _rect_top, _rect_right, _rect_bottom, false);
 		draw_set_alpha(1);
-		drawing(fnt_ui, c_white, fa_middle, fa_center, x, y, _texto);
-		draw_sprite(sScore, 0, x + _length * 8, y);
+		drawing(fnt_ui, c_red, fa_middle, fa_center, x, y, _texto);
+		draw_sprite(sDinheiro, 0, x + _length * 8, y);
 	}
 	if typeText == "saldo_total" {
-		var _texto = "Total:" + string(saldo_total);
+		var _texto = "Total:    " + string(saldo_total);
 		var _length = string_length(_texto);
 		var _rect_left = x - _length * 6;
 		var _rect_right = x + _length * 10;
@@ -118,8 +118,8 @@ else if room_get_name(room) == "rmModulo3" {
 		draw_set_color(c_black);
 		draw_rectangle(_rect_left, _rect_top, _rect_right, _rect_bottom, false);
 		draw_set_alpha(1);
-		drawing(fnt_ui, c_white, fa_middle, fa_center, x, y, _texto);
-		draw_sprite(sScore, 0, x + _length * 8, y);
+		drawing(fnt_ui, c_green, fa_middle, fa_center, x, y, _texto);
+		draw_sprite(sDinheiro, 0, x + _length * 8, y);
 	}
 } 
 
