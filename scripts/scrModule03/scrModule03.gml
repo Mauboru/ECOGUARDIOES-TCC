@@ -19,6 +19,4 @@ function verificaValorDaNota(valor, objeto){
 	if valor == 5 objeto.sprite_index = sCinco;
 	if valor == 10 objeto.sprite_index = sDez;
 	if valor == 20 objeto.sprite_index = sVinte;
-	if valor == 50 objeto.sprite_index = sCinquenta;
-	if valor == 100 objeto.sprite_index = sCem;
 }

@@ -18,7 +18,6 @@ if (x != destino_x) {
 
     y = destino_y + amplitude * sin(velocidade_onda * x);
 } else {
-	//Criando notas de dinheiro
     if (!pomboExiste) {
         pomboExiste = true;
         sprite_index = sClientePombo;
@@ -28,8 +27,8 @@ if (x != destino_x) {
         var precoPastel = 10;
         var precoCafe = 5;
 
-        var pedidoUm = choose(1, 2, 3, 4, 5);
-        var pedidoDois = choose(1, 2, 3, 4, 5);
+        var pedidoUm = choose(1, 2, 3);
+        var pedidoDois = choose(1, 2, 3);
 
         caixa.texto = "Eu quero " + string(pedidoUm) + "x pastéis e " + string(pedidoDois) + "x Cafés";
 
@@ -38,30 +37,37 @@ if (x != destino_x) {
         var nota_x = x + 170; 
         var nota_y = y + 90;
 
-        while (totalPagamento < valorPedido) {
-            var nota = choose(5, 10, 20, 50, 100);
-            totalPagamento += nota;
+        while (totalPagamento <= valorPedido) {
+			var nota = choose(5, 10, 20, 50); 
 
-            var pagamento = instance_create_layer(nota_x, nota_y, "Instances", oNotaDinheiro);
-			
+			if (totalPagamento + nota == valorPedido) {
+			    if (nota != 5) {
+			        nota = 5;
+			    } else {
+			        continue;
+			    }
+			}
+
+			totalPagamento += nota;
+
+			var pagamento = instance_create_layer(nota_x, nota_y, "Instances", oNotaDinheiro);
+
 			pagamento.image_xscale = .8;
 			pagamento.image_yscale = .8;
-            
-            if (nota == 100) {
-                pagamento.sprite_index = sCem;
-            } else if (nota == 50) {
-                pagamento.sprite_index = sCinquenta;
-            } else if (nota == 20) {
-                pagamento.sprite_index = sVinte;
-            } else if (nota == 10) {
-                pagamento.sprite_index = sDez;
-            } else if (nota == 5) {
-                pagamento.sprite_index = sCinco;
-            }
 
-			troco = (abs(valorPedido - totalPagamento));
-            nota_x += 30;
-        }
+			if (nota == 50) {
+			    pagamento.sprite_index = sCinquenta;
+			} else if (nota == 20) {
+			    pagamento.sprite_index = sVinte;
+			} else if (nota == 10) {
+			    pagamento.sprite_index = sDez;
+			} else if (nota == 5) {
+			    pagamento.sprite_index = sCinco;
+			}
+
+			troco = abs(valorPedido - totalPagamento);
+			nota_x += 30;
+		}
     }
 }
 
