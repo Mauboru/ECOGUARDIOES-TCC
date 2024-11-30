@@ -1,11 +1,7 @@
 somou = false;
 segurado = false;
 
-if valor == 5 sprite_index = sCinco;
-if valor == 10 sprite_index = sDez;
-if valor == 20 sprite_index = sVinte;
-if valor == 50 sprite_index = sCinquenta;
-if valor == 100 sprite_index = sCem;
+verificaValorDaNota(valor, self);
 
 if isTroco {
 	image_xscale = .8;

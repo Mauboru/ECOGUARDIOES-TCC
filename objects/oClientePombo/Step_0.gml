@@ -66,7 +66,6 @@ if (x != destino_x) {
 }
 
 if (soma > troco) {
-	print("VALEU TROUXA");
 	saldo += totalPagamento;
 	saldo_negativo += soma - troco;
 	soma = 0;
@@ -74,7 +73,6 @@ if (soma > troco) {
 	instance_destroy(oCaixaDialogo);
 	instance_destroy();
 } else if (soma == troco) {
-	print("VALEU AMIGO");
 	saldo += totalPagamento;
 	soma = 0;
 	valorPedido = 0;

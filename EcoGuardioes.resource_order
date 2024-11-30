@@ -14,7 +14,7 @@
     {"name":"Animals","order":2,"path":"folders/Objects/Module01/Animals.yy",},
     {"name":"Items","order":1,"path":"folders/Objects/Module01/Items.yy",},
     {"name":"Module02","order":1,"path":"folders/Objects/Module02.yy",},
-    {"name":"Module03","order":2,"path":"folders/Objects/Module03.yy",},
+    {"name":"Modulo03","order":2,"path":"folders/Objects/Modulo03.yy",},
     {"name":"Modules","order":4,"path":"folders/Objects/Modules.yy",},
     {"name":"UI","order":6,"path":"folders/Objects/UI.yy",},
     {"name":"HUD","order":3,"path":"folders/Objects/UI/HUD.yy",},
