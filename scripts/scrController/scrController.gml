@@ -44,3 +44,7 @@ function wrap_text(_text, _max_width) {
     array_push(result, line);
     return result;
 }
+
+function setVolume(){
+	music_volume = !music_volume;
+}

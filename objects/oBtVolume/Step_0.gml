@@ -1,5 +1,3 @@
-event_inherited();
-
 if music_volume = 0 {
 	caracteres = "-";
 	texto = " Mudo  ";
