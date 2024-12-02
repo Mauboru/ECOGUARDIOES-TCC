@@ -12,6 +12,8 @@ function endGameModule3() {
 }
 
 function reiniciarModulo3(){
+	terminouMusica = false;
+	jaPodeCriarNotas = false;
 	pontos = 0;
 }
 
