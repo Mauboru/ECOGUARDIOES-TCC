@@ -30,7 +30,7 @@ if (x != destino_x) {
         var pedidoUm = choose(1, 2, 3);
         var pedidoDois = choose(1, 2, 3);
 
-        caixa.texto = "Eu quero " + string(pedidoUm) + "x pastéis e " + string(pedidoDois) + "x Cafés";
+        caixa.texto = "Eu quero " + string(pedidoUm) + " pastéis e " + string(pedidoDois) + " Cafés";
 
         valorPedido = (pedidoUm * precoPastel) + (pedidoDois * precoCafe);
         totalPagamento = 0;

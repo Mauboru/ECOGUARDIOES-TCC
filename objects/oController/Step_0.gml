@@ -225,9 +225,9 @@ switch (room_name) {
 			#region PAUSE
 			
 			if in_pause {
-				//pausa algo?
+				if oNotaDinheiro.isTroco oNotaDinheiro.visible = false;
 			} else {
-				//libera algo?
+				if oNotaDinheiro.isTroco oNotaDinheiro.visible = true;
 			}
 		
 			#endregion

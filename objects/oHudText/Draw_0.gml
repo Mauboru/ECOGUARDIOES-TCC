@@ -92,7 +92,7 @@ else if room_get_name(room) == "rmModulo3" {
 		draw_sprite(sDinheiro, 0, x + _length * 8, y);
 	}
 	if typeText == "saldo_negativo" {
-		var _texto = "Negativo: " + string(saldo_negativo);
+		var _texto = " Negativo:  " + string(saldo_negativo);
 		var _length = string_length(_texto);
 		var _rect_left = x - _length * 6;
 		var _rect_right = x + _length * 10;
