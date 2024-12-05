@@ -4,7 +4,7 @@ image_xscale = 1.2;
 image_yscale = 1.2;
 alarm[0] = 5;
 
-audio_play_sound(snd_fx_drum, 0, 0);
+//audio_play_sound(snd_fx_drum, 0, 0);
 
 var firstNote = instance_nearest(x, y, oNota);
 var stats = instance_create_layer(room_width/2, room_height/2, "Transitions", oStats);

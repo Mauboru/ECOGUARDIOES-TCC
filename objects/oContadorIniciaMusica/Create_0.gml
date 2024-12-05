@@ -1,3 +1,3 @@
-countdown = 16;
+countdown = 4;
 text = "";
 vai_duration = 0;
